@@ -25,7 +25,7 @@ app.post('/posts/:id/comments',async (req,res)=>{
         data : {...newComment,postId}
     }
     
-    await axios.post('http://localhost:4005/events', event).catch((err) => {
+    await axios.post('http://event-bus-srv:4005/events', event).catch((err) => {
     console.log(err.message);
     })
 
@@ -34,7 +34,7 @@ app.post('/posts/:id/comments',async (req,res)=>{
 })
 
 app.post('/events',(req,res)=>{
-    console.log('Received',req.body.type)
+    
     res.send({status:'ok'})
 })
 
