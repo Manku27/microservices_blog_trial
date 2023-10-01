@@ -25,13 +25,13 @@ app.post('/posts',async (req,res)=>{
     await axios.post('http://event-bus-srv:4005/events', event).catch((err) => {
     console.log(err.message);
   })
-  console.log('hi there new post');
+
     res.status(201).send(newPost)
 
 })
 
 app.post('/events',(req,res)=>{
-    console.log('hi there from posts');
+ 
     res.send({status:'ok'})
 })
 
